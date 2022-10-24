@@ -4,14 +4,14 @@
 
 At Criteo, we have decided to fully opensource our automation stack. It is based on Saltstack, OpenConfig and supports Juniper JunOS, Arista EOS and SONiC.
 
-This repository aims to help to document and navigate our stack, as it consists in different repositories.
-It will includes our documentation, our FAQ, and potentially other things.
+This repository aims to help to document and navigate our stack, as it consists of different repositories.
+It will include our documentation, our FAQ, and potentially other things.
 
-At the moment, not everything is opensource as we have are releasing it progressively (some cleaning is needed on our side).
+At the moment, not everything is opensource as we are releasing it progressively (some cleaning is needed on our side).
 
 ## Global design
 
-Our approach about automation is opiniated. There are tons of way of doing network configuration, and choices have to be made at some points.
+Our approach to automation is opinionated. There are tons of ways of doing network configuration, and choices have to be made at some points.
 
             ┌──────────────┐  ┌────────────────────┐
             │ Network CMDB │  │ Other data sources │
@@ -42,15 +42,15 @@ Our approach about automation is opiniated. There are tons of way of doing netwo
 
 The Network CMDB contains data relative to the business and is completely agnostic to the network OS. The models are designed to describe the objects themselves rather than the configuration from devices perspective. The main principle is also to avoid any data duplication which could lead to mismatch configuration.
 
-For instance, we modelize the BGP session itself with two joined table describing peers: DeviceBGPSession <==> BGPSession <==> DeviceBGPSession.
+For instance, we represent the BGP session itself with two joined table describing peers: DeviceBGPSession <==> BGPSession <==> DeviceBGPSession.
 * DeviceBGPSession contains the local-as but not the peer-as, avoiding data duplication. The peer-as being the local-as of the other neighbor.
-* BGPSession contains every information peers have in common, like status (in production, maintenance etc...) or MD5 password
+* BGPSession contains all information peers have in common, like status (in production, maintenance etc...) or MD5 password
 
 ### OpenConfig converter API
 
 This API aggregate data from their source of truths (Network CMDB or possibly any other data sources).
 
-Then, it computes these data to provide OpenConfig Json for each device as an output.
+Then, it computes these data to provide OpenConfig JSON for each device as an output.
 
 We use OpenConfigValidator to validate data against the OpenConfig YANG models.
 
@@ -58,7 +58,7 @@ We use OpenConfigValidator to validate data against the OpenConfig YANG models.
 
 Salt will take OpenConfig data and convert them as Network configuration. At the moment, we are using templates to do that.
 
-The endgoal is to simply forward this OpenConfig data to the Network OS so it can apply it. At best, OpenConfig is partially implemented at all in Network Operating Systems.
+The end goal is to simply forward this OpenConfig data to the Network OS so it can apply it. At best, OpenConfig is partially implemented at all in Network Operating Systems.
 
 ## Repositories
 
