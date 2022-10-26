@@ -62,9 +62,9 @@ The end goal is to simply forward this OpenConfig data to the Network OS so it c
 
 ## Repositories
 
-* [SONiC Salt Deployer](https://github.com/kpetremann/sonic-salt-deployer): script to deploy salt-minion on SONiC devices and configure it
-* [SONiC Saltstack](https://github.com/kpetremann/sonic-saltstack): all states/execution modules we have for SONiC
-* [SONiC utilities](https://github.com/kpetremann/criteo-sonic-utilities): set of SONiC scripts to get information in JSON format (used by some SONiC saltstack modules)
+* [SONiC Salt Deployer](https://github.com/criteo/sonic-salt-deployer): script to deploy salt-minion on SONiC devices and configure it
+* [SONiC Saltstack](https://github.com/criteo/sonic-saltstack): all states/execution modules we have for SONiC
+* [SONiC utilities](https://github.com/criteo/criteo-sonic-utilities): set of SONiC scripts to get information in JSON format (used by some SONiC saltstack modules)
 * [OpenConfigValidator](https://github.com/criteo/OpenConfig-validator): library which permits to validate data over OpenConfig models via Ygot
 
 Coming later:
