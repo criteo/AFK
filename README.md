@@ -1,4 +1,4 @@
-# Criteo Network Automation Stack
+# Criteo AFK - Automation Framework for networK
 
 ## Context
 
