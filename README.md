@@ -1,4 +1,4 @@
-# Criteo Network Automation Stack
+# Criteo AFK - Automation Framework for networK
 
 ## Context
 
@@ -13,30 +13,30 @@ At the moment, not everything is opensource as we are releasing it progressively
 
 Our approach to automation is opinionated. There are tons of ways of doing network configuration, and choices have to be made at some points.
 
-            ┌──────────────┐  ┌────────────────────┐
-            │ Network CMDB │  │ Other data sources │
-            └──────────┬───┘  └──┬─────────────────┘
-                       │         │
-                       │         │
-                       │         │
-                       │         │
-                    ┌──▼─────────▼──┐
-                    │  OpenConfig   │
-                    │ converter API │
-                    └───────┬───────┘
-                            │
-                            │
-                            │
-                      ┌─────▼─────┐
-                      │ Saltstack │
-                      └─────┬─────┘
-                            │
-                            │
-                            │
-                            │
-                   ┌────────▼────────┐
-                   │ Network devices │
-                   └─────────────────┘
+           ┌──────────────┐     ┌────────────────────┐
+           │ Network CMDB │     │ Other data sources │
+           └──────────┬───┘     └──┬─────────────────┘
+                      │            │
+                      │            │
+                      │            │
+                      │            │
+                   ┌──▼────────────▼──┐
+                   │ Data aggregation │
+                   │  converter API   │
+                   └─────────┬────────┘
+                             │
+                             │
+                             │
+                       ┌─────▼─────┐
+                       │ Saltstack │
+                       └─────┬─────┘
+                             │
+                             │
+                             │
+                             │
+                    ┌────────▼────────┐
+                    │ Network devices │
+                    └─────────────────┘
 
 ### Network CMDB
 
@@ -46,7 +46,7 @@ For instance, we represent the BGP session itself with two joined table describi
 * DeviceBGPSession contains the local-as but not the peer-as, avoiding data duplication. The peer-as being the local-as of the other neighbor.
 * BGPSession contains all information peers have in common, like status (in production, maintenance etc...) or MD5 password
 
-### OpenConfig converter API
+### Data Aggregation API
 
 This API aggregate data from their source of truths (Network CMDB or possibly any other data sources).
 
@@ -65,9 +65,8 @@ The end goal is to simply forward this OpenConfig data to the Network OS so it c
 * [SONiC Salt Deployer](https://github.com/criteo/sonic-salt-deployer): script to deploy salt-minion on SONiC devices and configure it
 * [SONiC Saltstack](https://github.com/criteo/sonic-saltstack): all states/execution modules we have for SONiC
 * [SONiC utilities](https://github.com/criteo/criteo-sonic-utilities): set of SONiC scripts to get information in JSON format (used by some SONiC saltstack modules)
-* [OpenConfigValidator](https://github.com/criteo/OpenConfig-validator): library which permits to validate data over OpenConfig models via Ygot
+* [OpenConfig Salt modules](https://github.com/criteo/openconfig-saltstack)
+* [Network CMDB](https://github.com/criteo/netbox-network-cmdb)
 
 Coming later:
-* Network CMDB
-* OpenConfig converter API
-* OpenConfig Salt modules
+* Data aggregation API
