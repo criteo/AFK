@@ -9,6 +9,17 @@ It will include our documentation, our FAQ, and potentially other things.
 
 At the moment, not everything is opensource as we are releasing it progressively (some cleaning is needed on our side).
 
+## Repositories
+
+| Repository | Description | Latest commit |
+|------------|-------------|---------------|
+| [Network CMDB](https://github.com/criteo/netbox-network-cmdb)             | Network CMDB plugin for Netbox                            | ![Last commit](https://img.shields.io/github/last-commit/criteo/netbox-network-cmdb/main) |
+| Data aggregation API (coming soon)                                        | Aggregate data from CMDB and convert to OpenConfig        | |
+| [OpenConfig Salt modules](https://github.com/criteo/openconfig-saltstack) | Salt modules to apply configuration from OpenConfig data  | ![Last commit](https://img.shields.io/github/last-commit/criteo/openconfig-saltstack/main) |
+| [SONiC Salt Deployer](https://github.com/criteo/sonic-salt-deployer)      | tool to deploy and configure salt-minion on SONiC devices | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-salt-deployer/main) |
+| [SONiC Saltstack](https://github.com/criteo/sonic-saltstack)              | states/execution modules for SONiC                        | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-saltstack/main) |
+| [SONiC utilities](https://github.com/criteo/criteo-sonic-utilities)       | SONiC scripts used by some SONiC saltstack modules        | ![Last commit](https://img.shields.io/github/last-commit/criteo/criteo-sonic-utilities/main) |
+
 ## Global design
 
 Our approach to automation is opinionated. There are tons of ways of doing network configuration, and choices have to be made at some points.
@@ -59,14 +70,3 @@ We use OpenConfigValidator to validate data against the OpenConfig YANG models.
 Salt will take OpenConfig data and convert them as Network configuration. At the moment, we are using templates to do that.
 
 The end goal is to simply forward this OpenConfig data to the Network OS so it can apply it. At best, OpenConfig is partially implemented at all in Network Operating Systems.
-
-## Repositories
-
-* [SONiC Salt Deployer](https://github.com/criteo/sonic-salt-deployer): script to deploy salt-minion on SONiC devices and configure it
-* [SONiC Saltstack](https://github.com/criteo/sonic-saltstack): all states/execution modules we have for SONiC
-* [SONiC utilities](https://github.com/criteo/criteo-sonic-utilities): set of SONiC scripts to get information in JSON format (used by some SONiC saltstack modules)
-* [OpenConfig Salt modules](https://github.com/criteo/openconfig-saltstack)
-* [Network CMDB](https://github.com/criteo/netbox-network-cmdb)
-
-Coming later:
-* Data aggregation API
