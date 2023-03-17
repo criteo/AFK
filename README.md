@@ -51,7 +51,7 @@ Our approach to automation is opinionated. There are tons of ways of doing netwo
 
 ### Network CMDB
 
-The Network CMDB contains data relative to the business and is completely agnostic to the network OS. The models are designed to describe the objects themselves rather than the configuration from devices perspective. The main principle is also to avoid any data duplication which could lead to mismatch configuration.
+The Network CMDB contains data relative to the business and is completely agnostic to the network OS. The models are designed to describe the objects themselves rather than the configuration from devices perspective. The idea is also to avoid any data duplication which could lead to mismatch configuration.
 
 For instance, we represent the BGP session itself with two joined table describing peers: DeviceBGPSession <==> BGPSession <==> DeviceBGPSession.
 * DeviceBGPSession contains the local-as but not the peer-as, avoiding data duplication. The peer-as being the local-as of the other neighbor.
@@ -63,10 +63,10 @@ This API aggregate data from their source of truths (Network CMDB or possibly an
 
 Then, it computes these data to provide OpenConfig JSON for each device as an output.
 
-We use OpenConfigValidator to validate data against the OpenConfig YANG models.
+We use Ygot to validate the output against the OpenConfig YANG models.
 
 ### Saltstack
 
 Salt will take OpenConfig data and convert them as Network configuration. At the moment, we are using templates to do that.
 
-The end goal is to simply forward this OpenConfig data to the Network OS so it can apply it. At best, OpenConfig is partially implemented at all in Network Operating Systems.
+The end goal is to simply forward this OpenConfig data to the Network OS so it can apply it. At best, OpenConfig is partially implemented in Network Operating Systems.
