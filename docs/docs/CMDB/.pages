@@ -1,0 +1,6 @@
+nav:
+  - installation.md
+  - models
+  - endpoints.md
+  - ...
+  - FAQ.md

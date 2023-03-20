@@ -1,0 +1,45 @@
+site_name: AFK - Automation Framework for networK
+repo_url: https://github.com/criteo/AFK
+repo_name: criteo/AFK
+site_description: Documentation for Criteo AFK
+site_author: Criteo Network team
+
+plugins:
+  - awesome-pages
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.trackings
+    - navigation.tabs
+    - navigation.top
+  icon:
+    repo: fontawesome/brands/github-alt
+  logo: assets/mini-logo.png
+  favicon: assets/logo-enter-small.png
+
+extra_css:
+  - stylesheets/extra.css
