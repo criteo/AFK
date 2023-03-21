@@ -7,8 +7,6 @@ At Criteo, we have decided to fully opensource our automation stack. It is based
 This repository aims to help to document and navigate our stack, as it consists of different repositories.
 It will include our documentation, our FAQ, and potentially other things.
 
-At the moment, not everything is opensource as we are releasing it progressively (some cleaning is needed on our side).
-
 ## Repositories
 
 | Repository | Description | Latest commit |
@@ -22,7 +20,7 @@ At the moment, not everything is opensource as we are releasing it progressively
 
 ## Global design
 
-Our approach to automation is opinionated. There are tons of ways of doing network configuration, and choices have to be made at some points.
+Our approach to automation is opinionated. There are tons of ways of doing network configuration, and choices must made.
 
            ┌──────────────┐     ┌────────────────────┐
            │ Network CMDB │     │ Other data sources │
@@ -51,7 +49,7 @@ Our approach to automation is opinionated. There are tons of ways of doing netwo
 
 ### Network CMDB
 
-The Network CMDB contains data relative to the business and is completely agnostic to the network OS. The models are designed to describe the objects themselves rather than the configuration from devices perspective. The idea is also to avoid any data duplication which could lead to mismatch configuration.
+The Network CMDB contains data relative to the business and is completely agnostic to the network OS. The models are designed to describe the objects themselves rather than the configuration from devices perspective. The idea is also to avoid any data duplication which could lead to mismatched configuration.
 
 For instance, we represent the BGP session itself with two joined table describing peers: DeviceBGPSession <==> BGPSession <==> DeviceBGPSession.
 * DeviceBGPSession contains the local-as but not the peer-as, avoiding data duplication. The peer-as being the local-as of the other neighbor.
@@ -59,7 +57,7 @@ For instance, we represent the BGP session itself with two joined table describi
 
 ### Data Aggregation API
 
-This API aggregate data from their source of truths (Network CMDB or possibly any other data sources).
+This API aggregates data from their source of truths (Network CMDB or possibly any other data sources).
 
 Then, it computes these data to provide OpenConfig JSON for each device as an output.
 
@@ -67,6 +65,6 @@ We use Ygot to validate the output against the OpenConfig YANG models.
 
 ### Saltstack
 
-Salt will take OpenConfig data and convert them as Network configuration. At the moment, we are using templates to do that.
+Salt will take OpenConfig data and convert them as Network configuration. We are using templates to do that.
 
 The end goal is to simply forward this OpenConfig data to the Network OS so it can apply it. At best, OpenConfig is partially implemented in Network Operating Systems.
