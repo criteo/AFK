@@ -33,23 +33,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
-      - name: Generate doc
+      - name: Deploy doc
         run: |
           cd docs
-          mkdocs build
-          cp -R site/ ~/html
-          cp -R docs/assets ~/html
-          cd ..
-
-      - name: Deploy doc
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git fetch origin gh-pages && git checkout gh-pages
-          rm -rf *
-          cp -R ~/html/* .
-          touch .nojekyll
-          git add .
-          git commit --allow-empty -m "update doc"
-          git push
+          mkdocs gh-deploy
