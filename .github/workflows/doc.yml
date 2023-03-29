@@ -35,7 +35,11 @@ jobs:
 
       - name: Generate doc
         run: |
-          cd docs && mkdocs build && cp -R site/ ~/html && cd ..
+          cd docs
+          mkdocs build
+          cp -R site/ ~/html
+          cp -R docs/assets ~/html
+          cd ..
 
       - name: Deploy doc
         if: github.ref == 'refs/heads/main'

@@ -1,7 +1,7 @@
 ---
 title: Overview
 ---
-![logo](/assets/logo-afk-medium.png){ width="200" align=right loading=lazy }
+![logo](./assets/logo-afk-medium.png){ width="200" align=right loading=lazy }
 
 # Overview
 
