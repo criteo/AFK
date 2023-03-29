@@ -55,7 +55,7 @@ For instance, a `BGPSession` has two peers: `peer_a` and `peer_b`. The devices m
         }
     ```
 
-    The precompute will copy this structure for both devices:
+    The precompute will "copy" this structure for both devices:
 
     * `tor1.raw_data["bgp-session"] = results[0]`
     * `spine1.raw_data["bgp-session"] = results[0]`
