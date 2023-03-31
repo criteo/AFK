@@ -1,0 +1,16 @@
+nav:
+  - Global framework:
+    - index.md
+    - features.md
+    - installation.md
+    - provisioning.md
+    - monitoring.md
+    - configuration-cleaning.md
+    - ...
+    - FAQ.md
+  - CMDB
+  - Data-Aggregation-API
+  - SaltStack-OpenConfig
+  - SONiC-support
+  - FAQs.md
+  - ...
