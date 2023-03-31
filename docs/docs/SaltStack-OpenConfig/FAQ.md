@@ -2,33 +2,32 @@
 
 ## Why are the templates minimalist, with little logic and no inheritance?
 
-The idea here is to make the maximum of logic in Python, so on the Salt module side.
+The idea is to have most of the logic in Salt modules.
 
-We want to avoid complex Jinja for a lot of reasons: difficult to read, to maintain, to debug, to add features etc... Also, it makes more sense to handle most of the logic with a programming language rather than in templates.
+We want to avoid making Jinja templates more complex because:
 
-We also only authorize two levels of indentation in the template. If you need more, split your templates.
+* Jinja templates are difficult to read, maintain, debug and to add features.
+* It makes more sense to handle most of the logic with a programming language rather than a template.
 
-## State modules are supposed to be agnostic, and Execution module are not. Why not use Execution modules to handle Network OS particularity?
+As another rule, we only authorize two levels of indentation in the template. If you need more, split your templates.
 
-The only answer: it is in development and for now it brings more complexity to create Execution modules to handle configuration differences.
+## State modules are supposed to be agnostic. Why not use Execution modules to handle Network OS specificities?
 
-However, we do use Execution modules to get information from the device or to apply the configuration.
+For now, it brings more complexity to create Execution modules to handle configuration differences.
 
-## EOS/SONiC: why negate all configuration command and not push diffs or override everything?
+However, we do use Execution modules to get information from the device and to apply the configuration.
 
-The easiest option to answer is because all OS does not provide a way to obtain a diff (FRR on SONiC for instance).
+## EOS/SONiC: why negate all configuration statements instead of pushing diffs or override everything?
 
-We cannot override the entire configuration because a section of the configuration might be managed by multiple states. Example: one state to manage global BGP configuration, one for the BGP sessions, one for EVPN.
+Because not all Network OS provide a way to obtain a diff, e.g. SONiC/FRR.
 
-Sometimes we do negate the entire section. We remove a route-map to recreate it entirely on EOS because it is safer and easier to do that: we are sure the terms of the route-map does not contain extra configuration we don't support/want.
+We cannot override the entire configuration because a section of the configuration might be managed by multiple Salt States. For instance one State manages the global BGP configuration, another manages the BGP sessions and a third one manages EVPN.
 
-In the end, our goal is to maintain a state. It does not mean we will remove extra configuration. You can compare this to Chef: it does not remove a package manually installed by someone. But it enforces some packages to be installed with specific versions and configuration.
+Sometimes we do negate the entire section. We remove a route-map to recreate it entirely because it is safer and easier to do that: we ensure the route-map terms do not contain extra configuration we do not support.
 
 ## What is the behavior of SONiC BGP configuration if something bad happens?
 
-FRR:
-
-If a command is incorrect, it is ignored and the rest of the configuration is applied. It gives some errors in the output.
+If a command is incorrect, it is ignored by FRR and the rest of the configuration is applied. It returns errors in the output.
 
 !!! example
 
@@ -37,28 +36,24 @@ If a command is incorrect, it is ignored and the rest of the configuration is ap
     % Invalid prefix range for 10.252.200.0/22, make sure: len < ge-value <= le-value
     ```
 
-If we attempt to remove a statement which is not present, it gives an error. But it still apply the rest of the config.
+If we attempt to remove a statement which is not present, it returns an error. But it still applies the rest of the configuration.
 
 !!! example
 
     ```
     % Could not find route-map RM-CLOS-IN
     line 13: Failure to communicate[13] to zebra, line: no route-map RM-CLOS-IN
-    These are not caught by the dry-run feature of vtysh, which only checks if the config is semantically correct.
+    These are not caught by the dry-run feature of vtysh, which only checks if the config is semantica:ly correct.
     ```
 
-It means we need to cover all possible incorrect configuration before trying to apply it.
+## FRR is not offering a commit-based configuration yet, how do we handle this?
 
-## FRR is not (yet) offering a commit base configuration, how do we handle this?
+This part is complex. The future of FRR is clear: the Northbound API. We plan to use the future incremental feature via CLI or gRPC.
 
-This part is complex. The future is clear: the Northbound API. We plan to use the future incremental feature via CLI or directly gRPC.
+In the meantime, AFK applies all changes in real time:
 
-But this feature is not ready yet on FRR side.
+1. Salt disables "event-driven" notifications to Zebra when there is a policy to update, using `bgp route-map delay-timer 0`.
+2. Changes are applied.
+3. "Event-driven" notifications to Zebra are re-enabled.
 
-In the meantime, we will make all the changes in real time:
-
-* Salt will first disable "event-driven" notification to Zebra when there is a policy to update (using `bgp route-map delay-timer 0`)
-* then the changes are applied
-* "event-driven" notification to Zebra are re-enabled
-
-This is the safest option we have for now. All of this happens in a really short time as VTYSH is pushing all lines in a simple `for loop` (in C).
+Everything happens in a really short time as FRR pushes all lines in a simple `for loop` in C.

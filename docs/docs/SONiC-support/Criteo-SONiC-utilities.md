@@ -7,7 +7,7 @@ Our SONiC modules require some custom script to be installed:
 * `/opt/salt/scripts/criteo_fdbshow`
 * `/opt/salt/scripts/criteo_intf_information`
 
-These scripts are available in [Criteo SONiC utilities](https://github.com/criteo/criteo-sonic-utilities) repository.
+These scripts are available in the [Criteo SONiC utilities](https://github.com/criteo/criteo-sonic-utilities) repository.
 
 You can use the provided [Salt state](https://github.com/criteo/criteo-sonic-utilities/blob/main/utilities/install.sls) to deploy them automatically. This state assumes some grains are properly set for each SONiC device:
 

@@ -41,7 +41,7 @@ def run():
 
 !!! info
 
-    These are examples, don't forget to adapt them to your infrastructure
+    These are examples. Make sure to adapt them to your infrastructure.
 
 Simple schedule in `{SALT_PILLAR_PATH}/schedule_simple_full_config.sls`
 
@@ -57,7 +57,7 @@ schedule:
       end: 7pm
 ```
 
-Schedule only for devices having `salt-enabled` tag in NetBox in `{SALT_PILLAR_PATH}/schedule_smart_full_config.sls`
+Schedule only for devices having a `salt-enabled` tag in NetBox in `{SALT_PILLAR_PATH}/schedule_smart_full_config.sls`
 
 ```py
 #!py
@@ -96,6 +96,6 @@ def run():
     return {}
 ```
 
-!!! danger
+!!! danger "Attention"
 
-    If you are putting secrets directly in the pillar file, don't forget to apply the appropriate permissions to the file. Something like `chmod 600`.
+    If you are putting secrets directly in the pillar file, make sure to apply the appropriate permissions to the file. Something like `chmod 600`.

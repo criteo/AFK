@@ -6,14 +6,14 @@ OpenConfig models do not provide all existing network features.
 
 There are three approaches to this:
 
-1. changing the way to configure the devices
-    * sometimes this is not possible
-2. augmenting the OpenConfig models
-    * only if the feature cannot be implemented another way
-    * this would only be temporary
-    * a PR to [OpenConfig](https://github.com/openconfig/public) is mandatory
-3. doing a separate model
-    * only in last resort
+1. Changing the way to configure the devices.
+    * Sometimes this is not possible.
+2. Augmenting the OpenConfig models.
+    * Only if the feature cannot be implemented another way.
+    * This would only be temporary.
+    * A PR to [OpenConfig](https://github.com/openconfig/public) is mandatory.
+3. Doing a separate model.
+    * This should only be a last resort.
 
 !!! warning
 
@@ -25,14 +25,14 @@ There are three approaches to this:
 
 | Feature | Decision |
 |---------|----------|
-| `enforce first-as` | Migrate to a route-map like `match as-path <asn>` <asn> being the AS of the neighbor |
-| `network` | `to be defined, maybe via route-maps` |
-| `soft reconfiguration inbound` | `to be defined` |
+| `enforce first-as` | Migrate to a route-map like `match as-path <asn>` <asn> being the AS of the neighbor. |
+| `network` | `To be defined, maybe via route-maps` |
+| `soft reconfiguration inbound` | `To be defined` |
 
 ### Routing policies
 
 | Feature | Decision |
 |---------|----------|
-| `large communities` | do a PR in OpenConfig repo |
-| decision in prefix-list: `permit` / `deny` | all prefixes in prefix-lists are hardcoded as `permit`. The `deny` must be done at in the route-map |
-| prefix-list sequence | hardcoded in the jinja loop |
+| `large communities` | Do a PR in OpenConfig repo |
+| decision in prefix-list: `permit` / `deny` | All prefixes in prefix-lists are hardcoded as `permit`. The `deny` must be done at in the route-map. |
+| prefix-list sequence | Hardcoded in the jinja loop |

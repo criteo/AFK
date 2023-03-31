@@ -17,7 +17,7 @@ For instance, a `BGPSession` has two peers: `peer_a` and `peer_b`. The devices m
 
 ??? example
 
-    Here is a simplified output of `bgp-sessions` endpoint.
+    Here is a simplified output of the `bgp-sessions` endpoint.
 
     ```json
         {
@@ -72,14 +72,14 @@ For instance, a `BGPSession` has two peers: `peer_a` and `peer_b`. The devices m
 
 ## Convertors
 
-This is where the magic happens. From the precomputed data, it generates OpenConfig configuration for each device.
+This is where the magic happens. From the precomputed data, the Data Aggregation API generates OpenConfig configuration for each device.
 
 Thanks to [ygot](https://github.com/openconfig/ygot) and [OpenConfig YANG models](https://github.com/openconfig/public), the Data Aggregation API has all the OpenConfig Go structures.
 
-* OpenConfig structure is respected for sure
-* logic is validated: if a neighbor refers to an undefined route policy, it will raise an error
-* output: conversion to JSON RFC7951 is provided by ygot
-* all features from ygot can be implemented
+* OpenConfig structure is respected for sure.
+* Logic is validated: if a neighbor refers to an undefined route policy, it will raise an error.
+* Output: conversion to JSON RFC7951 is provided by ygot.
+* All features from ygot can be implemented.
 
 ## Reporting
 

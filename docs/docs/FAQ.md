@@ -2,11 +2,11 @@
 
 ## How to decommission an entire device?
 
-For now, the mantra is: create your own state to decommission.
+For now, the mantra is: create your own Salt State to decommission.
 
-We do have an optional removal feature but with some safeguards.
+We do have an optional removal feature, but with some safeguards.
 
-As of today, we think decommission should be handled in different states and modules than provisioning.
+As of today, we think decommissioning should be handled in different Salt States and modules than provisioning.
 
 ## What part is device-agnostic, and what is not?
 
@@ -15,23 +15,23 @@ The only part of the stack which is not agnostic is SaltStack.
 The job of Salt is to convert agnostic data coming from Data Aggregation API to a configuration the devices understand.
 So, the data in the NetBox CMDB and the Data Aggregation API must be completely agnostic, with nothing specific to a Network OS.
 
-If we do not do that, Salt could try to push a configuration which would not be appropriate for the device.
+If we did not do that, Salt could try to push a configuration which would not be appropriate for the device.
 
 !!! note
 
-    The Data Aggregation API might stop to be device-agnostic because of interface naming. More info to come.
+    In the future, the Data Aggregation API might no longer be device-agnostic because of interface naming. More info to come.
 
 ## What if I have a use case which is not covered by OpenConfig?
 
-The rules are:
+You should follow these general rules:
 
-* ask yourself: is my use case really necessary? Or can I adapt?
-* try to find a configuration which is supported by OpenConfig
-* if your workflow is really a needed corner case:
-    * do a dedicated plugin in NetBox
-    * do a dedicated plugin in the Data Aggregation API (feature not yet available) to provide a separate custom model
-    * do a dedicated state for your use case
-    * ensure you have the necessary safeguard to avoid your configuration being removed by another state
+* Ask yourself: is my use case really necessary? Or can I adapt?
+* Try to find a configuration which is supported by OpenConfig.
+* If your workflow is really a needed corner case:
+    1. Create a dedicated plugin in NetBox.
+    2. Create a dedicated plugin in the Data Aggregation API (feature not yet available) to provide a separate custom model.
+    3. Create a dedicated Salt State for your use case.
+    4. Ensure you have the necessary safeguards to prevent your configuration from being removed by another Salt State.
 
 See also [Data-Aggregation-API](Data-Aggregation-API/missing-features-in-openconfig.md).
 

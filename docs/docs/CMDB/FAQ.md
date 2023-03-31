@@ -12,17 +12,17 @@ NetBox also includes several models which could be considered as CMDB such as `V
 
 OpenConfig models are designed from a device perspective.
 
-Our CMDB models are designed from a service/asset perspective. It enables us to apply common parameters without worrying of applying them at both ends.
+Our CMDB models are designed from a service/asset perspective. It allows us to apply common parameters without worrying of applying them at both ends.
 
-Example: we can set a maintenance status on a BGP session directly.
+Example: we can directly set a maintenance status on a BGP session.
 
-It also enables us to limit redefinition of values that can lead to misconfiguration. For instance, in OpenConfig nothing prevents us from having a mismatch of ASN in a BGP session. In our CMDB, it cannot happen as the BGP session is the central object which links two devices, hence the neighbor A remote-as is the neighbor B local-as.
+It also allows us to limit redefinition of values that can lead to misconfiguration. For instance, in OpenConfig nothing prevents us from having a mismatch of ASN in a BGP session. In our CMDB, it cannot happen as the BGP session is the central object which links two devices, hence the neighbor A remote-as is the neighbor B local-as.
 
 ## Is it perfect and completely generic?
 
 No :innocent:
 
-It will not cover all use-cases, but we will bring more features.
+It will not cover all use cases, but we will bring more features.
 
 The CMDB models come from opinionated choices aiming to simplify the implementation.
 
@@ -30,7 +30,7 @@ Also, we do not aim to have a factorized configuration.
 
 ## Why is max-prefixes configured at the top level of the neighbor and not in a SAFI?
 
-The reason is coming from a limitation of EOS. It cannot set the max prefix at SAFI level:
+This is due to an EOS limitation. It cannot set the max prefix at SAFI level:
 
 ```
 device.lab(config)#router bgp 65000
@@ -56,10 +56,10 @@ device.lab(config-router-bgp-af)#neighbor 100.64.1.0 ?
 
 The issue here is coming from implementation differences between JunOS and EOS/FRR:
 
-* in JunOS, this should be done using `afi-safi-in` in routing-policy (applying a route-map in a specific SAFI in BGP configuration is not possible):
+* In JunOS, this should be done using `afi-safi-in` in routing-policy (applying a route-map in a specific SAFI in BGP configuration is not possible):
   `route-map->term->from->safi`
 
-* in EOS/FRR, this should be done in BGP config (`afi-safi-in` in routing-policy is not supported):
+* In EOS/FRR, this should be done in BGP config (`afi-safi-in` in routing-policy is not supported):
   `bgp->neighbor->safi->route-map`
 
 Authorizing both methods could lead to conflicts.
@@ -90,14 +90,14 @@ We decided to not support `afi-safi-in` in routing-policy to simplify and reduce
 
 Yes.
 
-* EOS: can set up different route-map at both peer and SAFI level
-* FRR: can only set up route-map at SAFI level
-    * however, our Salt implementation uses a fallback mechanism:
-        * a route-map defined at the SAFI level has the highest priority
-        * if there is no route-map at the SAFI level, then it applies the route-map provided at the peer level (if it exists)
+* EOS: can set up different route-maps at both peer and SAFI level.
+* FRR: can only set up route-map at SAFI level.
+    * However, our Salt implementation uses a fallback mechanism:
+        * A route-map defined at the SAFI level has the highest priority.
+        * If there is no route-map at the SAFI level, then it applies the route-map provided at the peer level (if it exists).
 * JunOS: does not permit having different route-map depending on the SAFI. A route-map is applied on all SAFI the neighbor is in. However, we have implemented a workaround at Salt level:
     * Salt duplicates the route-maps for all SAFI.
-    * it associates the right route-map to the neighbor depending on which SAFI it is in.
+    * It associates the right route-map to the neighbor depending on which SAFI it is in.
 
 
 !!! example "JunOS example"
@@ -118,8 +118,8 @@ Yes.
 
 For two reasons:
 
-* we do not see the added value to have this option as it is enabled by default on most Network OS
-* some OS like JunOS do not have such implementation: in that case, communities must be deleted in the a route-map
+* We do not see the added value to have this option as it is enabled by default on most Network OS.
+* Some OS like JunOS do not have such implementation: in that case, communities must be deleted in the route-map.
 
 Adding it would make the Salt templates more complex because sometimes it would be directly in the BGP configuration, sometimes it would imply the creation of a route-map.
 
@@ -127,25 +127,25 @@ Additionally, it would make route-policies and BGP states more tightly coupled.
 
 ## Why are peer-groups deprecated / not supported?
 
-Because peer-groups bring a lot of complexity and risks especially because of FRR.
+Because peer-groups bring a lot of complexity and risks, especially because of FRR.
 
 In FRR, for sessions being in a peer-group:
 
-* the peer-group remote-as is not mandatory, so the neighbors must have a remote-as
-* if the peer-group has a remote-as, the neighbors in the peer-group cannot have remote-as explicitly
+* The peer-group remote-as is not mandatory, therefore the neighbors must have a remote-as.
+* If the peer-group has a remote-as, the neighbors in the peer-group cannot have a remote-as explicitly.
 
 !!! note "some of the issues we found in FRR"
 
     When the neighbor is in a peer-group and the remote-as is set at neighbor level only:
 
-    * removing the neighbor of a peer-group removes entirely the neighbor
-    * set the remote-as at the peer-group level breaks BGP session which do not have the same remote-as
-    * changing the peer-group of a neighbor is impossible: `error: “Cannot change the peer-group. Deconfigure first”`
+    * Removing the neighbor of a peer-group removes entirely the neighbor.
+    * Setting the remote-as at the peer-group level breaks BGP sessions which do not have the same remote-as.
+    * Changing the peer-group of a neighbor is impossible: `error: “Cannot change the peer-group. Deconfigure first”`
 
     When the neighbor is in a peer-group and the remote-as is set at the peer-group level only:
 
-    * changing the remote-as of a single neighbor is not possible
-    * removing the remote-as of the peer-group removes the entire peer-group configuration and its neighbor
+    * Changing the remote-as of a single neighbor is not possible.
+    * Removing the remote-as of the peer-group removes the entire peer-group configuration and its neighbors.
 
     There are other issues, and we did not even talk about the difference with the other Network OS...
 
@@ -162,25 +162,25 @@ In FRR, for sessions being in a peer-group:
 
     Because of EOS, the `maximum-prefixes` field in the CMDB is set at the peer/peer-group level too. Then, the Data Aggregation API duplicates the value for each `maximum-prefixes` set.
 
-    We could force the `maximum-prefixes` for each SAFI whether they are enabled or not. But, in JunOS it would mean enabling all the SAFIs for the peer-group.
+    We could force the `maximum-prefixes` for each SAFI whether they are enabled or not. But in JunOS it would mean enabling all the SAFIs for the peer-group.
 
-    So it is easier to only enable this option at the peer level, as the peer must be in a SAFI to work.
+    So it is easier to enable this option only at the peer level, as the peer must be in a SAFI to work.
 
     ### Why don't we support SAFI in peer-groups?
 
     Because of FRR:
 
-    - neighbor de/activation in a SAFI is ignored if its peer-group is de/activated in this SAFI
-    - when removing a SAFI from peer-group, the neighbor’s SAFI changes
-    - when a neighbor’s SAFI list changes, the BGP session is reset
+    - Neighbor de/activation in a SAFI is ignored if its peer-group is de/activated in this SAFI.
+    - When removing a SAFI from peer-group, the neighbor’s SAFI changes.
+    - When a neighbor’s SAFI list changes, the BGP session is reset.
 
-    For retro-compatibility purpose, we don’t manage at all the statement no neighbor <peer-group> activate. Meaning, if it is added manually, it will not be removed.
+    For retro-compatibility purposes, we do not manage the statement `no neighbor <peer-group> activate`. Meaning, if it is added manually, it will not be removed.
 
     ### Why is the remote-as mandatory in the peer-groups, and why must it have the same remote-as than its neighbor?
 
     !!! warning
 
-        To ease migration, our Salt template for SONiC support neighbor without remote-as. But be very careful if using it as there are a lot of risk doing that!
+        To ease migration, our Salt template for SONiC supports peer-groups without remote-as.
 
     All these restrictions come from FRR. In FRR, we cannot setup the remote-as at both peer-group and neighbor level.
 
@@ -188,14 +188,14 @@ In FRR, for sessions being in a peer-group:
 
     !!! tip "TL;DR"
 
-        * cannot have a remote-as set on both neighbor and its peer-group (error message: % Peer-group member cannot override remote-as of peer-group.)
-        * migrating remote-as from neighbor to peer-group works, without BGP reset
-        * the other way around not: it ends up in having the neighbor being deleted and reset
+        * Cannot have a remote-as set on both neighbor and its peer-group (error message: % Peer-group member cannot override remote-as of peer-group).
+        * Migrating remote-as from neighbor to peer-group works, without BGP reset.
+        * Migrating remote-as from peer-group to neighbor does not work. The neighbor gets deleted and recreated.
 
     Note: for local-as the behavior is different:
 
-    * both neighbor and peer-group can have a local-as set, different or the same
-    * on both neighbor and peer-group: we cannot set the same local-as as the global-as (error message: % Cannot have local-as same as BGP AS number)
+    * Both neighbor and peer-group can have a local-as set, different or the same.
+    * On both neighbor and peer-group: we cannot set the same local-as as the global-as (error message: % Cannot have local-as same as BGP AS number).
 
     ```
     router bgp 65000

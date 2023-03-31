@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-| SONiC version | support |
+| SONiC version | Support |
 |---------------|---------|
 | 201911        | :white_check_mark: |
 | 202205        | :white_check_mark: |
@@ -18,10 +18,10 @@
 
 | Step | Description | Guide |
 |------|-------------|-------|
-| 1    | install `salt-minion` on your SONiC devices | [SONiC Salt Deployer](SONiC-Salt-Deployer.md) section |
-| 2    | deploy `Criteo SONiC utilities`             | [Criteo SONiC utilities](Criteo-SONiC-utilities.md) section |
-| 3    | deploy our SONiC modules                    | [SONiC modules](SONiC-modules.md) |
-| 4    | deploy our OpenConfig modules               | [SaltStack-OpenConfig](/SaltStack-OpenConfig/installation) section |
+| 1    | Install `salt-minion` on your SONiC devices | [SONiC Salt Deployer](SONiC-Salt-Deployer.md) section |
+| 2    | Deploy `Criteo SONiC utilities`             | [Criteo SONiC utilities](Criteo-SONiC-utilities.md) section |
+| 3    | Deploy our SONiC modules                    | [SONiC modules](SONiC-modules.md) section |
+| 4    | Deploy our OpenConfig modules               | [SaltStack-OpenConfig](/SaltStack-OpenConfig/installation) section |
 
 !!! warning "Important"
 
@@ -29,7 +29,7 @@
 
     By default, the files in `/etc/frr` of the BGP container are generated from an embedded template combined with metadata from the `config_db`.
 
-    AFK requires to directly mount `/etc/frr` of the BGP container to `/etc/sonic/frr` on the host.
+    AFK requires to directly mount `/etc/sonic/frr` from the host to `/etc/frr` on the BGP container.
 
     The change has been upstream starting 202205. To configure SONiC this way:
 

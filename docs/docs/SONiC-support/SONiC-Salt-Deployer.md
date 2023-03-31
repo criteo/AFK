@@ -14,8 +14,8 @@ You can run it regularly. There will be no impact on already deployed devices. O
 # Prepare your environment
 
 ```
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements/base.txt
 ```
 

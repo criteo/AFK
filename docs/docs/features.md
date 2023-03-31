@@ -5,7 +5,7 @@
 * :white_check_mark: supported
 * :material-progress-wrench: work in progress
 * :octicons-project-roadmap-16: in the roadmap
-* :no_entry: won't probably be implemented
+* :no_entry: will probably not be implemented
 
 ## BGP
 

@@ -130,7 +130,7 @@ Provides all BGP sessions.
 
 ## Prefix lists
 
-Endpoint: `api/plugins/cmdb/prefix-lists/`
+Endpoint: `/api/plugins/cmdb/prefix-lists/`
 
 Provides the prefix lists for each device.
 

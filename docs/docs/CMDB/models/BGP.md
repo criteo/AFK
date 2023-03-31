@@ -8,7 +8,7 @@ Models location: [netbox_cmdb/models/bgp.py](https://github.com/criteo/netbox-ne
 
 !!! info
 
-    To simplify the diagram, not all relations appear (example: `DeviceBGPSession` => `IPAM.IPAddress`)
+    To simplify the diagram, not all relations are displayed (example: `DeviceBGPSession` => `IPAM.IPAddress`)
 
 ``` mermaid
 erDiagram

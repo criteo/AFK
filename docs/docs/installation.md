@@ -10,7 +10,7 @@
 
 !!! note
 
-    If you are not familiar with NetBox and SaltStack, you should look at their awesome documentation prior trying AFK:
+    If you are not familiar with NetBox and SaltStack, you should look at their awesome documentation prior to trying AFK:
 
     - [https://docs.netbox.dev/](https://docs.netbox.dev/)
     - [https://docs.saltproject.io/salt/user-guide/](https://docs.saltproject.io/salt/user-guide/)

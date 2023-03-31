@@ -39,10 +39,10 @@ flowchart TD
     CMDB[Network CMDB]
     DAAPI[Data Aggregation API]
     DEV[Network_Devices]
-    DATASOURCES[Other data sources]
+    DATASOURCE[Other data source]
 
     CMDB -->|raw data| DAAPI
-    DATASOURCES -->|raw data| DAAPI
+    DATASOURCE -->|raw data| DAAPI
     DAAPI -->|openconfig| SaltStack
     SaltStack -->|configuration| DEV[Network_Devices]
 ```
@@ -61,14 +61,14 @@ For instance, we represent the BGP session itself with two joined tables describ
 
 ### Data Aggregation API
 
-This API aggregates data from their sources of truth: Network CMDB or possibly any other data sources you may have.
+This API aggregates data from their sources of truth: the Network CMDB or possibly any other data source you may have.
 
-Then, it computes these data to provide OpenConfig JSON for each device as an output.
+Then, it computes this data to provide OpenConfig JSON for each device as an output.
 
 [ygot](https://github.com/openconfig/ygot) is used to validate the output against the OpenConfig YANG models.
 
 ### SaltStack OpenConfig
 
-Salt will take OpenConfig data and convert them as Network configuration. We are using templates to do that.
+Salt takes OpenConfig data and converts it as Network configuration. We are using templates to do that.
 
 The end goal is to simply forward this OpenConfig data to the Network OS to apply the configuration. Currently, OpenConfig is, at best, partially implemented in Network Operating Systems.
