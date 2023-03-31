@@ -1,0 +1,1358 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Criteo AFK">
+      
+      
+        <meta name="author" content="Criteo Network team">
+      
+      
+      
+        <link rel="prev" href="../endpoints/">
+      
+      
+        <link rel="next" href="../../Data-Aggregation-API/installation/">
+      
+      <link rel="icon" href="../../assets/logo-enter-small.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
+    
+    
+      
+        <title>FAQ - AFK - Automation Framework for networK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#faq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AFK - Automation Framework for networK" class="md-header__button md-logo" aria-label="AFK - Automation Framework for networK" data-md-component="logo">
+      
+  <img src="../../assets/mini-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AFK - Automation Framework for networK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/criteo/AFK" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    criteo/AFK
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Global framework
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link md-tabs__link--active">
+        CMDB
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Data-Aggregation-API/installation/" class="md-tabs__link">
+        Data Aggregation API
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../SaltStack-OpenConfig/installation/" class="md-tabs__link">
+        SaltStack OpenConfig
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../SONiC-support/overview/" class="md-tabs__link">
+        SONiC support
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../FAQs/" class="md-tabs__link">
+      FAQs
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AFK - Automation Framework for networK" class="md-nav__button md-logo" aria-label="AFK - Automation Framework for networK" data-md-component="logo">
+      
+  <img src="../../assets/mini-logo.png" alt="logo">
+
+    </a>
+    AFK - Automation Framework for networK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/criteo/AFK" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    criteo/AFK
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Global framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Global framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../provisioning/" class="md-nav__link">
+        Provisioning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration-cleaning/" class="md-nav__link">
+        Configuration cleaning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          CMDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          CMDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/BGP/" class="md-nav__link">
+        BGP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/Routing-Policies/" class="md-nav__link">
+        Routing Policies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../endpoints/" class="md-nav__link">
+        Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        FAQ
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-use-existing-models-from-netbox" class="md-nav__link">
+    Why not use existing models from NetBox?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-implement-directly-openconfig-models-in-the-cmdb" class="md-nav__link">
+    Why not implement directly OpenConfig models in the CMDB?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-it-perfect-and-completely-generic" class="md-nav__link">
+    Is it perfect and completely generic?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-max-prefixes-configured-at-the-top-level-of-the-neighbor-and-not-in-a-safi" class="md-nav__link">
+    Why is max-prefixes configured at the top level of the neighbor and not in a SAFI?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cannot-a-route-map-filter-on-safi-while-openconfig-permits-it" class="md-nav__link">
+    Why cannot a route-map filter on SAFI while OpenConfig permits it?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-we-support-route-maps-applied-in-a-specific-safi-and-globally" class="md-nav__link">
+    Do we support route-maps applied in a specific SAFI and globally?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-send-community-not-implemented" class="md-nav__link">
+    Why is send-community not implemented?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-are-peer-groups-deprecated-not-supported" class="md-nav__link">
+    Why are peer-groups deprecated / not supported?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-about-deprecated-features" class="md-nav__link">
+    Questions about deprecated features
+  </a>
+  
+    <nav class="md-nav" aria-label="Questions about deprecated features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-peer-groups-not-have-maximum-prefixes" class="md-nav__link">
+    Why do peer-groups not have maximum-prefixes?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-dont-we-support-safi-in-peer-groups" class="md-nav__link">
+    Why don't we support SAFI in peer-groups?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-is-the-remote-as-mandatory-in-the-peer-groups-and-why-must-it-have-the-same-remote-as-than-its-neighbor" class="md-nav__link">
+    Why is the remote-as mandatory in the peer-groups, and why must it have the same remote-as than its neighbor?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Data Aggregation API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Data Aggregation API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Aggregation-API/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Aggregation-API/design/" class="md-nav__link">
+        Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Aggregation-API/missing-features-in-openconfig/" class="md-nav__link">
+        Missing features in OpenConfig
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          SaltStack OpenConfig
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SaltStack OpenConfig
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SaltStack-OpenConfig/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SaltStack-OpenConfig/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SaltStack-OpenConfig/FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          SONiC support
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          SONiC support
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SONiC-support/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SONiC-support/SONiC-Salt-Deployer/" class="md-nav__link">
+        SONiC Salt deployer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SONiC-support/Criteo-SONiC-utilities/" class="md-nav__link">
+        Criteo SONiC utilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SONiC-support/SONiC-modules/" class="md-nav__link">
+        SONiC modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQs/" class="md-nav__link">
+        FAQs
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-use-existing-models-from-netbox" class="md-nav__link">
+    Why not use existing models from NetBox?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-implement-directly-openconfig-models-in-the-cmdb" class="md-nav__link">
+    Why not implement directly OpenConfig models in the CMDB?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-it-perfect-and-completely-generic" class="md-nav__link">
+    Is it perfect and completely generic?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-max-prefixes-configured-at-the-top-level-of-the-neighbor-and-not-in-a-safi" class="md-nav__link">
+    Why is max-prefixes configured at the top level of the neighbor and not in a SAFI?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cannot-a-route-map-filter-on-safi-while-openconfig-permits-it" class="md-nav__link">
+    Why cannot a route-map filter on SAFI while OpenConfig permits it?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-we-support-route-maps-applied-in-a-specific-safi-and-globally" class="md-nav__link">
+    Do we support route-maps applied in a specific SAFI and globally?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-send-community-not-implemented" class="md-nav__link">
+    Why is send-community not implemented?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-are-peer-groups-deprecated-not-supported" class="md-nav__link">
+    Why are peer-groups deprecated / not supported?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-about-deprecated-features" class="md-nav__link">
+    Questions about deprecated features
+  </a>
+  
+    <nav class="md-nav" aria-label="Questions about deprecated features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-peer-groups-not-have-maximum-prefixes" class="md-nav__link">
+    Why do peer-groups not have maximum-prefixes?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-dont-we-support-safi-in-peer-groups" class="md-nav__link">
+    Why don't we support SAFI in peer-groups?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-is-the-remote-as-mandatory-in-the-peer-groups-and-why-must-it-have-the-same-remote-as-than-its-neighbor" class="md-nav__link">
+    Why is the remote-as mandatory in the peer-groups, and why must it have the same remote-as than its neighbor?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="faq">FAQ</h1>
+<h2 id="why-not-use-existing-models-from-netbox">Why not use existing models from NetBox?</h2>
+<p><a href="https://netbox.dev">NetBox</a> is a great tool to manage your DCIM and IPAM.</p>
+<p>Our CMDB models directly use the DCIM and IPAM models, like <code>Device</code> and <code>IP prefixes</code>.</p>
+<p>NetBox also includes several models which could be considered as CMDB such as <code>VLAN</code>, <code>VRF</code> and <code>L2VPN</code>. We do not want to use these models to avoid confusion and design mismatches with our CMDB.</p>
+<h2 id="why-not-implement-directly-openconfig-models-in-the-cmdb">Why not implement directly OpenConfig models in the CMDB?</h2>
+<p>OpenConfig models are designed from a device perspective.</p>
+<p>Our CMDB models are designed from a service/asset perspective. It allows us to apply common parameters without worrying of applying them at both ends.</p>
+<p>Example: we can directly set a maintenance status on a BGP session.</p>
+<p>It also allows us to limit redefinition of values that can lead to misconfiguration. For instance, in OpenConfig nothing prevents us from having a mismatch of ASN in a BGP session. In our CMDB, it cannot happen as the BGP session is the central object which links two devices, hence the neighbor A remote-as is the neighbor B local-as.</p>
+<h2 id="is-it-perfect-and-completely-generic">Is it perfect and completely generic?</h2>
+<p>No <img alt="😇" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f607.svg" title=":innocent:" /></p>
+<p>It will not cover all use cases, but we will bring more features.</p>
+<p>The CMDB models come from opinionated choices aiming to simplify the implementation.</p>
+<p>Also, we do not aim to have a factorized configuration.</p>
+<h2 id="why-is-max-prefixes-configured-at-the-top-level-of-the-neighbor-and-not-in-a-safi">Why is max-prefixes configured at the top level of the neighbor and not in a SAFI?</h2>
+<p>This is due to an EOS limitation. It cannot set the max prefix at SAFI level:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>device.lab(config)#router bgp 65000
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>device.lab(config-router-bgp)#neighbor 100.64.1.0 maximum-routes ?
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  &lt;0-4294967294&gt; Maximum number of routes (0 means unlimited)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>device.lab(config-router-bgp)#address-family ipv4
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>device.lab(config-router-bgp-af)#neighbor 100.64.1.0 ?
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  activate Activate neighbor in the address family
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  additional-paths BGP additional-paths commands
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  default-originate Advertise a default route to this peer
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  graceful-restart Enable graceful restart mode
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  next-hop Next-hop address-family configuration
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  next-hop-unchanged Preserve original nexthop while advertising routes to eBGP peers
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  prefix-list Prefix list reference
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  route-map Name a route map
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  weight Assign weight for routes learnt from this peer
+</span></code></pre></div>
+<h2 id="why-cannot-a-route-map-filter-on-safi-while-openconfig-permits-it">Why cannot a route-map filter on SAFI while OpenConfig permits it?</h2>
+<p>The issue here is coming from implementation differences between JunOS and EOS/FRR:</p>
+<ul>
+<li>
+<p>In JunOS, this should be done using <code>afi-safi-in</code> in routing-policy (applying a route-map in a specific SAFI in BGP configuration is not possible):
+  <code>route-map-&gt;term-&gt;from-&gt;safi</code></p>
+</li>
+<li>
+<p>In EOS/FRR, this should be done in BGP config (<code>afi-safi-in</code> in routing-policy is not supported):
+  <code>bgp-&gt;neighbor-&gt;safi-&gt;route-map</code></p>
+</li>
+</ul>
+<p>Authorizing both methods could lead to conflicts.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>If we set the following configuration in the CMDB:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>route-map RM-TEST
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    term 10
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        from afi-safi-in ipv4_unicast
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>router bgp
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    neighbor toto
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    address-family ipv6 unicast
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        route-map out RM-TEST
+</span></code></pre></div>
+<ul>
+<li>JunOS would only consider ipv4_unicast parameter</li>
+<li>EOS/FRR would only consider ipv6_unicast parameter</li>
+</ul>
+<p>We would end up with a route-map with different meanings depending on the network OS.</p>
+</div>
+<p>We decided to not support <code>afi-safi-in</code> in routing-policy to simplify and reduce risk.</p>
+<h2 id="do-we-support-route-maps-applied-in-a-specific-safi-and-globally">Do we support route-maps applied in a specific SAFI and globally?</h2>
+<p>Yes.</p>
+<ul>
+<li>EOS: can set up different route-maps at both peer and SAFI level.</li>
+<li>FRR: can only set up route-map at SAFI level.<ul>
+<li>However, our Salt implementation uses a fallback mechanism:<ul>
+<li>A route-map defined at the SAFI level has the highest priority.</li>
+<li>If there is no route-map at the SAFI level, then it applies the route-map provided at the peer level (if it exists).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JunOS: does not permit having different route-map depending on the SAFI. A route-map is applied on all SAFI the neighbor is in. However, we have implemented a workaround at Salt level:<ul>
+<li>Salt duplicates the route-maps for all SAFI.</li>
+<li>It associates the right route-map to the neighbor depending on which SAFI it is in.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">JunOS example</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># we create duplicates per SAFI, adding &quot;from family &lt;safi&gt;&quot; in each term:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set policy-options policy-statement AUTOGENERATED::RM-TEST:IPV4_UNICAST term 10 from family inet
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>set policy-options policy-statement AUTOGENERATED::RM-TEST:IPV6_UNICAST term 10 from family inet6
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>...
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a># then we apply the one matching the SAFI used in the CMDB neighbor configuration (bgp-&gt;neighbor-&gt;address-family-&gt;route-map)
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>set routing-instance prod protocols bgp group TEST neighbor 192.0.2.1 export [AUTOGENERATED::RM-TEST:IPV4_UNICAST]
+</span></code></pre></div>
+</div>
+<h2 id="why-is-send-community-not-implemented">Why is send-community not implemented?</h2>
+<p>For two reasons:</p>
+<ul>
+<li>We do not see the added value to have this option as it is enabled by default on most Network OS.</li>
+<li>Some OS like JunOS do not have such implementation: in that case, communities must be deleted in the route-map.</li>
+</ul>
+<p>Adding it would make the Salt templates more complex because sometimes it would be directly in the BGP configuration, sometimes it would imply the creation of a route-map.</p>
+<p>Additionally, it would make route-policies and BGP states more tightly coupled.</p>
+<h2 id="why-are-peer-groups-deprecated-not-supported">Why are peer-groups deprecated / not supported?</h2>
+<p>Because peer-groups bring a lot of complexity and risks, especially because of FRR.</p>
+<p>In FRR, for sessions being in a peer-group:</p>
+<ul>
+<li>The peer-group remote-as is not mandatory, therefore the neighbors must have a remote-as.</li>
+<li>If the peer-group has a remote-as, the neighbors in the peer-group cannot have a remote-as explicitly.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">some of the issues we found in FRR</p>
+<p>When the neighbor is in a peer-group and the remote-as is set at neighbor level only:</p>
+<ul>
+<li>Removing the neighbor of a peer-group removes entirely the neighbor.</li>
+<li>Setting the remote-as at the peer-group level breaks BGP sessions which do not have the same remote-as.</li>
+<li>Changing the peer-group of a neighbor is impossible: <code>error: “Cannot change the peer-group. Deconfigure first”</code></li>
+</ul>
+<p>When the neighbor is in a peer-group and the remote-as is set at the peer-group level only:</p>
+<ul>
+<li>Changing the remote-as of a single neighbor is not possible.</li>
+<li>Removing the remote-as of the peer-group removes the entire peer-group configuration and its neighbors.</li>
+</ul>
+<p>There are other issues, and we did not even talk about the difference with the other Network OS...</p>
+</div>
+<h2 id="questions-about-deprecated-features">Questions about deprecated features</h2>
+<details class="abstract">
+<summary>expand...</summary>
+<h3 id="why-do-peer-groups-not-have-maximum-prefixes">Why do peer-groups not have maximum-prefixes?</h3>
+<ul>
+<li>OpenConfig: <code>maximum-prefixes</code> can only be set at the SAFI level</li>
+<li>FRR: only in SAFI</li>
+<li>EOS: only at the peer/peer-group level</li>
+<li>JunOS: only in SAFI</li>
+</ul>
+<p>Because of EOS, the <code>maximum-prefixes</code> field in the CMDB is set at the peer/peer-group level too. Then, the Data Aggregation API duplicates the value for each <code>maximum-prefixes</code> set.</p>
+<p>We could force the <code>maximum-prefixes</code> for each SAFI whether they are enabled or not. But in JunOS it would mean enabling all the SAFIs for the peer-group.</p>
+<p>So it is easier to enable this option only at the peer level, as the peer must be in a SAFI to work.</p>
+<h3 id="why-dont-we-support-safi-in-peer-groups">Why don't we support SAFI in peer-groups?</h3>
+<p>Because of FRR:</p>
+<ul>
+<li>Neighbor de/activation in a SAFI is ignored if its peer-group is de/activated in this SAFI.</li>
+<li>When removing a SAFI from peer-group, the neighbor’s SAFI changes.</li>
+<li>When a neighbor’s SAFI list changes, the BGP session is reset.</li>
+</ul>
+<p>For retro-compatibility purposes, we do not manage the statement <code>no neighbor &lt;peer-group&gt; activate</code>. Meaning, if it is added manually, it will not be removed.</p>
+<h3 id="why-is-the-remote-as-mandatory-in-the-peer-groups-and-why-must-it-have-the-same-remote-as-than-its-neighbor">Why is the remote-as mandatory in the peer-groups, and why must it have the same remote-as than its neighbor?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To ease migration, our Salt template for SONiC supports peer-groups without remote-as.</p>
+</div>
+<p>All these restrictions come from FRR. In FRR, we cannot setup the remote-as at both peer-group and neighbor level.</p>
+<p>It means that the peer-group remote-as MUST match with all its neighbors remote-as. Otherwise, the CMDB would not reflect what would really be applied to the device.</p>
+<div class="admonition tip">
+<p class="admonition-title">TL;DR</p>
+<ul>
+<li>Cannot have a remote-as set on both neighbor and its peer-group (error message: % Peer-group member cannot override remote-as of peer-group).</li>
+<li>Migrating remote-as from neighbor to peer-group works, without BGP reset.</li>
+<li>Migrating remote-as from peer-group to neighbor does not work. The neighbor gets deleted and recreated.</li>
+</ul>
+</div>
+<p>Note: for local-as the behavior is different:</p>
+<ul>
+<li>Both neighbor and peer-group can have a local-as set, different or the same.</li>
+<li>On both neighbor and peer-group: we cannot set the same local-as as the global-as (error message: % Cannot have local-as same as BGP AS number).</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>router bgp 65000
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    neighbor PG-L3_RA local-as 65000
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>% Cannot have local-as same as BGP AS number
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    neighbor 192.0.2.1 local-as 65001
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    neighbor 192.0.2.1 local-as 65000
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>% Cannot have local-as same as BGP AS number
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    neighbor 192.0.2.1 local-as 65002
+</span></code></pre></div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.trackings", "navigation.tabs", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
+      
+    
+  </body>
+</html>
