@@ -10,7 +10,7 @@ The full documentation can be found here: [https://criteo.github.io/AFK/](https:
 
 > **Warning**
 >
-> **If you are using an ad-blocker**, the documentation website might not work properly as `Criteo` word is in the URL.
+> **If you are using an ad-blocker, the documentation website might not work properly because `Criteo` is in the URL.**
 
 ## Repositories
 
