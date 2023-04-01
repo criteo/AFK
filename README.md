@@ -6,7 +6,11 @@ At Criteo, we have decided to fully open source our network automation stack.
 
 It is based on [NetBox](https://netbox.dev), [OpenConfig](https://www.openconfig.net/), [SaltStack](https://github.com/SaltStack/salt), and supports Juniper JunOS, Arista EOS and [SONiC](https://sonic-net.github.io/SONiC/).
 
-The full documentation can be found here: [https://criteo.github.io/AFK](https://criteo.github.io/AFK)
+The full documentation can be found here: [https://criteo.github.io/AFK/](https://criteo.github.io/AFK/)
+
+> **Warning**
+>
+> **If you are using an ad-blocker**, the documentation website might not work properly as `Criteo` word is in the URL.
 
 ## Repositories
 
