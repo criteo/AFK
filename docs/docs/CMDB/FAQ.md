@@ -52,6 +52,35 @@ device.lab(config-router-bgp-af)#neighbor 100.64.1.0 ?
   weight Assign weight for routes learnt from this peer
 ```
 
+## Why is there no permit/deny field in community-lists and prefix-lists?
+
+While some devices provides a `permit/deny` field to a community/prefix-list, other Network OS like JunOS does not. More importantly, OpenConfig does not have it either.
+
+If you are currently using `permit/deny`, we suggest you to adapt your route-map instead.
+
+!!! example
+
+    You should migrate from:
+    ```
+    ip prefix-list FANCY_PREFIX_LIST 10 deny 10.0.0.0/24
+    ip prefix-list FANCY_PREFIX_LIST 20 permit 192.0.2.0/24
+
+    route-map RM-TEST-IN 5 permit
+      match ip prefix-list FANCY_PREFIX_LIST
+    ```
+
+    to:
+    ```
+    ip prefix-list FANCY_PREFIX_LIST 10 permit 10.0.0.0/24
+    ip prefix-list ANOTHER_FANCY_PREFIX_LIST 20 permit 192.0.2.0/24
+
+    route-map RM-TEST-IN 5 deny
+      match ip prefix-list FANCY_PREFIX_LIST
+
+    route-map RM-TEST-IN 10 permit
+      match ip prefix-list ANOTHER_FANCY_PREFIX_LIST
+    ```
+
 ## Why cannot a route-map filter on SAFI while OpenConfig permits it?
 
 The issue here is coming from implementation differences between JunOS and EOS/FRR:
