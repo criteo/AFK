@@ -63,7 +63,7 @@ If you are currently using `permit/deny`, we suggest you to adapt your route-map
     You should migrate from:
     ```
     ip prefix-list FANCY_PREFIX_LIST 10 deny 10.0.0.0/24
-    ip prefix-list FANCY_PREFIX_LIST 20 permit 192.0.2.0/24
+    ip prefix-list FANCY_PREFIX_LIST 20 permit 10.0.0.0/8 le 32
 
     route-map RM-TEST-IN 5 permit
       match ip prefix-list FANCY_PREFIX_LIST
@@ -72,7 +72,7 @@ If you are currently using `permit/deny`, we suggest you to adapt your route-map
     to:
     ```
     ip prefix-list FANCY_PREFIX_LIST 10 permit 10.0.0.0/24
-    ip prefix-list ANOTHER_FANCY_PREFIX_LIST 20 permit 192.0.2.0/24
+    ip prefix-list ANOTHER_FANCY_PREFIX_LIST 20 permit 10.0.0.0/8 le 32
 
     route-map RM-TEST-IN 5 deny
       match ip prefix-list FANCY_PREFIX_LIST
