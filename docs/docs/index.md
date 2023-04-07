@@ -9,6 +9,8 @@ title: Overview
 
 At Criteo, we have decided to fully open source our network automation framework.
 
+We have called it **AFK**, which stands for "**A**utomation **F**ramework for networ**K**" _(yes we are cheating a bit with the "k", but why not :smile:)_. It fits with the idea of being **A**way **F**rom **K**eyboard while the network configuration is being deployed or updated automatically.
+
 It is based on [NetBox](https://netbox.dev), [OpenConfig](https://www.openconfig.net/), [SaltStack](https://github.com/SaltStack/salt), and supports Juniper JunOS, Arista EOS and [SONiC](https://sonic-net.github.io/SONiC/).
 
 !!! note
