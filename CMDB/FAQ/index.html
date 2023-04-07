@@ -657,6 +657,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-is-there-no-permitdeny-field-in-community-lists-and-prefix-lists" class="md-nav__link">
+    Why is there no permit/deny field in community-lists and prefix-lists?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-cannot-a-route-map-filter-on-safi-while-openconfig-permits-it" class="md-nav__link">
     Why cannot a route-map filter on SAFI while OpenConfig permits it?
   </a>
@@ -1048,6 +1055,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-is-there-no-permitdeny-field-in-community-lists-and-prefix-lists" class="md-nav__link">
+    Why is there no permit/deny field in community-lists and prefix-lists?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-cannot-a-route-map-filter-on-safi-while-openconfig-permits-it" class="md-nav__link">
     Why cannot a route-map filter on SAFI while OpenConfig permits it?
   </a>
@@ -1162,6 +1176,29 @@
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  route-map Name a route map
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  weight Assign weight for routes learnt from this peer
 </span></code></pre></div>
+<h2 id="why-is-there-no-permitdeny-field-in-community-lists-and-prefix-lists">Why is there no permit/deny field in community-lists and prefix-lists?</h2>
+<p>While some devices provides a <code>permit/deny</code> field to a community/prefix-list, other Network OS like JunOS does not. More importantly, OpenConfig does not have it either.</p>
+<p>If you are currently using <code>permit/deny</code>, we suggest you to adapt your route-map instead.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>You should migrate from:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ip prefix-list FANCY_PREFIX_LIST 10 deny 10.0.0.0/24
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ip prefix-list FANCY_PREFIX_LIST 20 permit 10.0.0.0/8 le 32
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>route-map RM-TEST-IN 5 permit
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  match ip prefix-list FANCY_PREFIX_LIST
+</span></code></pre></div></p>
+<p>to:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ip prefix-list FANCY_PREFIX_LIST 10 permit 10.0.0.0/24
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ip prefix-list ANOTHER_FANCY_PREFIX_LIST 20 permit 10.0.0.0/8 le 32
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>route-map RM-TEST-IN 5 deny
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  match ip prefix-list FANCY_PREFIX_LIST
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>route-map RM-TEST-IN 10 permit
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  match ip prefix-list ANOTHER_FANCY_PREFIX_LIST
+</span></code></pre></div></p>
+</div>
 <h2 id="why-cannot-a-route-map-filter-on-safi-while-openconfig-permits-it">Why cannot a route-map filter on SAFI while OpenConfig permits it?</h2>
 <p>The issue here is coming from implementation differences between JunOS and EOS/FRR:</p>
 <ul>
@@ -1178,14 +1215,14 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>If we set the following configuration in the CMDB:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>route-map RM-TEST
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    term 10
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        from afi-safi-in ipv4_unicast
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>router bgp
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    neighbor toto
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    address-family ipv6 unicast
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        route-map out RM-TEST
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>route-map RM-TEST
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    term 10
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        from afi-safi-in ipv4_unicast
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>router bgp
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    neighbor toto
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    address-family ipv6 unicast
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        route-map out RM-TEST
 </span></code></pre></div>
 <ul>
 <li>JunOS would only consider ipv4_unicast parameter</li>
@@ -1214,15 +1251,15 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">JunOS example</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># we create duplicates per SAFI, adding &quot;from family &lt;safi&gt;&quot; in each term:
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set policy-options policy-statement AUTOGENERATED::RM-TEST:IPV4_UNICAST term 10 from family inet
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>set policy-options policy-statement AUTOGENERATED::RM-TEST:IPV6_UNICAST term 10 from family inet6
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>...
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a># then we apply the one matching the SAFI used in the CMDB neighbor configuration (bgp-&gt;neighbor-&gt;address-family-&gt;route-map)
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>set routing-instance prod protocols bgp group TEST neighbor 192.0.2.1 export [AUTOGENERATED::RM-TEST:IPV4_UNICAST]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># we create duplicates per SAFI, adding &quot;from family &lt;safi&gt;&quot; in each term:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>set policy-options policy-statement AUTOGENERATED::RM-TEST:IPV4_UNICAST term 10 from family inet
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>...
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>set policy-options policy-statement AUTOGENERATED::RM-TEST:IPV6_UNICAST term 10 from family inet6
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>...
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a># then we apply the one matching the SAFI used in the CMDB neighbor configuration (bgp-&gt;neighbor-&gt;address-family-&gt;route-map)
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>set routing-instance prod protocols bgp group TEST neighbor 192.0.2.1 export [AUTOGENERATED::RM-TEST:IPV4_UNICAST]
 </span></code></pre></div>
 </div>
 <h2 id="why-is-send-community-not-implemented">Why is send-community not implemented?</h2>
@@ -1296,14 +1333,14 @@
 <li>Both neighbor and peer-group can have a local-as set, different or the same.</li>
 <li>On both neighbor and peer-group: we cannot set the same local-as as the global-as (error message: % Cannot have local-as same as BGP AS number).</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>router bgp 65000
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    neighbor PG-L3_RA local-as 65000
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>% Cannot have local-as same as BGP AS number
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    neighbor 192.0.2.1 local-as 65001
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    neighbor 192.0.2.1 local-as 65000
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>% Cannot have local-as same as BGP AS number
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    neighbor 192.0.2.1 local-as 65002
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>router bgp 65000
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    neighbor PG-L3_RA local-as 65000
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>% Cannot have local-as same as BGP AS number
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    neighbor 192.0.2.1 local-as 65001
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    neighbor 192.0.2.1 local-as 65000
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>% Cannot have local-as same as BGP AS number
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    neighbor 192.0.2.1 local-as 65002
 </span></code></pre></div>
 </details>
 
