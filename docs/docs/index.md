@@ -41,13 +41,15 @@ flowchart TD
     CMDB[Network CMDB]
     DAAPI[Data Aggregation API]
     DEV[Network_Devices]
-    DATASOURCE[Other data source]
+    DATASOURCE[Other data source*]
 
     CMDB -->|raw data| DAAPI
     DATASOURCE -->|raw data| DAAPI
     DAAPI -->|openconfig| SaltStack
     SaltStack -->|configuration| DEV[Network_Devices]
 ```
+
+_* The Data Aggregation API will be able to get and merge data from other data sources once a plugin system will be in place._
 
 ### Network CMDB
 
