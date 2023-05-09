@@ -35,6 +35,7 @@ theme:
     - navigation.instant
     - navigation.trackings
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
   icon:
     repo: fontawesome/brands/github-alt
