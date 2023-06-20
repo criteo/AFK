@@ -10,7 +10,7 @@ nav:
     - FAQ.md
   - CMDB
   - Data-Aggregation-API
-  - SaltStack-OpenConfig
+  - SaltStack-modules
   - SONiC-support
   - FAQs.md
   - ...

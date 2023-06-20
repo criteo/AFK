@@ -23,9 +23,9 @@ It is based on [NetBox](https://netbox.dev), [OpenConfig](https://www.openconfig
 |------------|-------------|---------------|
 | [Network CMDB](https://github.com/criteo/netbox-network-cmdb)             | Network CMDB plugin for Netbox                            | ![Last commit](https://img.shields.io/github/last-commit/criteo/netbox-network-cmdb/main) |
 | Data aggregation API (coming soon)                                        | Aggregate data from CMDB and convert to OpenConfig        | |
-| [OpenConfig Salt modules](https://github.com/criteo/openconfig-SaltStack) | Salt modules to apply configuration from OpenConfig data  | ![Last commit](https://img.shields.io/github/last-commit/criteo/openconfig-SaltStack/main) |
+| [AFK Salt modules](https://github.com/criteo/afk-saltstack)               | Salt modules to apply configuration from OpenConfig data  | ![Last commit](https://img.shields.io/github/last-commit/criteo/openconfig-SaltStack/main) |
 | [SONiC Salt Deployer](https://github.com/criteo/sonic-salt-deployer)      | Tool to deploy and configure salt-minion on SONiC devices | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-salt-deployer/main) |
-| [SONiC SaltStack](https://github.com/criteo/sonic-SaltStack)              | States/execution modules for SONiC                        | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-SaltStack/main) |
+| [SONiC SaltStack](https://github.com/criteo/sonic-saltstack)              | States/execution modules for SONiC                        | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-SaltStack/main) |
 | [SONiC utilities](https://github.com/criteo/criteo-sonic-utilities)       | SONiC scripts used by some SONiC SaltStack modules        | ![Last commit](https://img.shields.io/github/last-commit/criteo/criteo-sonic-utilities/main) |
 
 ## Global design
@@ -71,8 +71,8 @@ Then, it computes this data to provide OpenConfig JSON for each device as an out
 
 [ygot](https://github.com/openconfig/ygot) is used to validate the output against the OpenConfig YANG models.
 
-### SaltStack OpenConfig
+### SaltStack modules
 
-Salt takes OpenConfig data and converts it as Network configuration. We are using templates to do that.
+Our AFK Salt modules takes OpenConfig data and converts it as Network configuration. We are using templates to do that.
 
 The end goal is to simply forward this OpenConfig data to the Network OS to apply the configuration. Currently, OpenConfig is, at best, partially implemented in Network Operating Systems.

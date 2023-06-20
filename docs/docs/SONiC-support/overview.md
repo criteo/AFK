@@ -21,7 +21,7 @@
 | 1    | Install `salt-minion` on your SONiC devices | [SONiC Salt Deployer](SONiC-Salt-Deployer.md) section |
 | 2    | Deploy `Criteo SONiC utilities`             | [Criteo SONiC utilities](Criteo-SONiC-utilities.md) section |
 | 3    | Deploy our SONiC modules                    | [SONiC modules](SONiC-modules.md) section |
-| 4    | Deploy our OpenConfig modules               | [SaltStack-OpenConfig](/SaltStack-OpenConfig/installation) section |
+| 4    | Deploy our Saltstack modules                | [SaltStack-modules](/SaltStack-modules/installation) section |
 
 !!! warning "Important"
 
