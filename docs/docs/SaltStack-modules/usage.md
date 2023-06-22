@@ -73,7 +73,7 @@ DATA_API = f"https://data-aggregation-api.{DATACENTER}.{ENVIRONMENT}.local"
 
 
 def run():
-    """Get OpenConfig salt-enabled data for all devices."""
+    """Get AFK salt-enabled data for all devices."""
     device = __grains__["id"]
     endpoint = f"{DATA_API}/devices/{device}/salt_enabled"
 

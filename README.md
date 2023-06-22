@@ -18,7 +18,7 @@ The full documentation can be found here: [https://criteo.github.io/AFK/](https:
 |------------|-------------|---------------|
 | [Network CMDB](https://github.com/criteo/netbox-network-cmdb)             | Network CMDB plugin for Netbox                            | ![Last commit](https://img.shields.io/github/last-commit/criteo/netbox-network-cmdb/main) |
 | Data aggregation API (coming soon)                                        | Aggregate data from CMDB and convert to OpenConfig        | |
-| [OpenConfig Salt modules](https://github.com/criteo/openconfig-SaltStack) | Salt modules to apply configuration from OpenConfig data  | ![Last commit](https://img.shields.io/github/last-commit/criteo/openconfig-SaltStack/main) |
+| [AFK Salt modules](https://github.com/criteo/afk-saltstack)               | Salt modules to apply configuration from OpenConfig data  | ![Last commit](https://img.shields.io/github/last-commit/criteo/openconfig-SaltStack/main) |
 | [SONiC Salt Deployer](https://github.com/criteo/sonic-salt-deployer)      | tool to deploy and configure salt-minion on SONiC devices | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-salt-deployer/main) |
-| [SONiC SaltStack](https://github.com/criteo/sonic-SaltStack)              | Salt States/Execution modules for SONiC                        | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-SaltStack/main) |
+| [SONiC SaltStack](https://github.com/criteo/sonic-saltstack)              | Salt States/Execution modules for SONiC                        | ![Last commit](https://img.shields.io/github/last-commit/criteo/sonic-SaltStack/main) |
 | [SONiC utilities](https://github.com/criteo/criteo-sonic-utilities)       | SONiC scripts used by some SONiC SaltStack modules        | ![Last commit](https://img.shields.io/github/last-commit/criteo/criteo-sonic-utilities/main) |
