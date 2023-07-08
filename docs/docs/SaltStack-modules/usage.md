@@ -34,8 +34,8 @@ def run():
 
 ## Apply the configuration manually
 
-* Dry run: `salt <device> state.apply full_config test=True`
-* Deploy: `salt <device> state.apply full_config`
+* Dry run: `salt <device> state.apply afk test=True`
+* Deploy: `salt <device> state.apply afk`
 
 ## Schedule configuration deployment
 
@@ -43,21 +43,21 @@ def run():
 
     These are examples. Make sure to adapt them to your infrastructure.
 
-Simple schedule in `{SALT_PILLAR_PATH}/schedule_simple_full_config.sls`
+Simple schedule in `{SALT_PILLAR_PATH}/schedule_simple_afk.sls`
 
 ```yaml
 schedule:
-  full_config:
+  afk:
     function: state.sls
     args:
-      - full_config
+      - afk
     minutes: 30
     range:
       start: 8am
       end: 7pm
 ```
 
-Schedule only for devices having a `salt-enabled` tag in NetBox in `{SALT_PILLAR_PATH}/schedule_smart_full_config.sls`
+Schedule only for devices having a `afk-enabled` tag in NetBox in `{SALT_PILLAR_PATH}/schedule_smart_afk.sls`
 
 ```py
 #!py
@@ -73,7 +73,7 @@ DATA_API = f"https://data-aggregation-api.{DATACENTER}.{ENVIRONMENT}.local"
 
 
 def run():
-    """Get AFK salt-enabled data for all devices."""
+    """Get AFK afk-enabled data for all devices."""
     device = __grains__["id"]
     endpoint = f"{DATA_API}/devices/{device}/salt_enabled"
 
@@ -82,9 +82,9 @@ def run():
         if result.get("salt_enabled") is True:
             return {
                 "schedule": {
-                    "full_config": {
+                    "afk": {
                         "function": "state.sls",
-                        "args": ["full_config"],
+                        "args": ["afk"],
                         "minutes": 30,
                         "range": {"start": "8am", "end": "7pm"},
                     }

@@ -35,5 +35,5 @@ It can take many forms. At Criteo we have two kinds:
 
 Here you have two options:
 
-* :grin: `not so AFK`: just run the SaltStack State manually via the `salt <device> state.apply full_config` command
+* :grin: `not so AFK`: just run the SaltStack State manually via the `salt <device> state.apply afk` command
 * :heart: `real AFK`: create a schedule to automatically apply the configuration
