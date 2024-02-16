@@ -7,6 +7,7 @@ nav:
     - monitoring.md
     - configuration-cleaning.md
     - ...
+    - version_matrix.md
     - FAQ.md
   - CMDB
   - Data-Aggregation-API
