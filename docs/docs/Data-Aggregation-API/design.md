@@ -83,12 +83,33 @@ Thanks to [ygot](https://github.com/openconfig/ygot) and [OpenConfig YANG models
 
 ## Reporting
 
-!!! warning
+| Endpoint | Description |
+|------------|-----------|
+| `/v1/report/last` | Last or ongoing build report |
+| `/v1/report/last/complete` | Report of the last complete build (whether it failed or not) |
+| `/v1/report/last/successful` | Report of the last successful build |
 
-    :wrench: This section is under construction.
+The reports contain:
+* The status of the build.
+* When it started and finished.
+* Statistics like performance.
+* Logs.
 
-## Endpoints
+## OpenConfig
 
-!!! warning
+| Endpoint | Description |
+|------------|-----------|
+| `/v1/devices/[hostname]/openconfig` | Get OpenConfig data for a specific device |
+| `/v1/devices/*/openconfig` | Get OpenConfig data for all devices |
+| `/v1/devices/[hostname]/afk_enabled` | Indicates if a device has the tag AFK enabled in NetBox |
+| `/v1/devices/*/afk_enabled` | Same as above, but for all devices |
 
-    :wrench: This section is under construction.
+Note: `afk_enabled` can be used to enable or disable AFK schedule in Salt via `afk-enabled` tag in NetBox DCIM.
+
+# Other endpoints
+
+| Endpoint | Description |
+|------------|-----------|
+| `/metrics` | Prometheus metrics |
+| `/api/version` | Details about the running version |
+| `/api/health` | Dummy endpoint for basic healthcheck of the app |

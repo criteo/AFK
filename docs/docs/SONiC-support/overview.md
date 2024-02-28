@@ -4,7 +4,7 @@
 
 | SONiC version | Support |
 |---------------|---------|
-| 201911        | :white_check_mark: |
+| 201911*       | :warning: |
 | 202205        | :white_check_mark: |
 
 !!! info "Legend"
@@ -13,6 +13,8 @@
     - :material-progress-wrench: work in progress
     - :warning: deprecated
     - :no_entry: not supported
+
+* FRR 7.2.1 in SONiC 201911 has a memory leak which can be triggered by AFK
 
 ## Installation
 
