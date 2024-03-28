@@ -28,14 +28,14 @@ erDiagram
 PrefixList:
     name: string
     device: dcim.Device
-    ip_version: string choices
+    ip_version: string choice
 ```
 
 ```yaml
 PrefixListTerm:
     prefix_list: cmdb.PrefixList
     sequence: integer
-    decision: string choices
+    decision: string choice
     prefix: IPNetwork
     le: integer
     ge: integer
@@ -55,7 +55,7 @@ BGPCommunityList:
 BGPCommunityListTerm:
     bgp_community_list: cmdb.BGPCommunityList
     sequence: integer
-    decision: string choices
+    decision: string choice
     community: string
 ```
 
@@ -73,7 +73,7 @@ RoutePolicyTerm:
     route_policy: cmdb.RoutePolicy
     description: string
     sequence: integer
-    decision: string choices
+    decision: string choice
 
     # match
     from_bgp_community: string

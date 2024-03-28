@@ -54,7 +54,8 @@ The main idea is to have a `BGPSession` linked to two `DeviceBGPSession` to avoi
 
 ```yaml
 BGPSession:
-    status: boolean
+    state: string choice
+    monitoring_state: string choice
     peer_a: cmdb.DeviceBGPSession
     peer_b: cmdb.DeviceBGPSession
     password: string
@@ -65,6 +66,7 @@ BGPSession:
 ```yaml
 DeviceBGPSession:
     device: dcim.Device
+    enabled: boolean
     description: string
     local_address: netbox.ipam.IPAddress
     remote_asn: cmdb.ASN
