@@ -60,7 +60,7 @@ For instance, we represent the BGP session itself with two joined tables describ
 `DeviceBGPSession` <==> `BGPSession` <==> `DeviceBGPSession`
 
 * `DeviceBGPSession` contains the `local-as` but not the `peer-as`, avoiding data duplication. The `peer-as` being the `local-as` of the other neighbor.
-* `BGPSession` contains all information peers have in common, like status (`in production`, `maintenance` etc...) or `MD5 password`.
+* `BGPSession` contains all information peers have in common, like state (`in production`, `maintenance` etc...) or `MD5 password`.
 
 ### Data Aggregation API
 
