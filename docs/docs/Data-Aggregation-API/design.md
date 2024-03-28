@@ -110,6 +110,7 @@ Note: `afk_enabled` can be used to enable or disable AFK schedule in Salt via `a
 
 | Endpoint | Description |
 |------------|-----------|
+| `/api/build/trigger` | Trigger a new build, only one at a time |
 | `/metrics` | Prometheus metrics |
 | `/api/version` | Details about the running version |
 | `/api/health` | Dummy endpoint for basic healthcheck of the app |
