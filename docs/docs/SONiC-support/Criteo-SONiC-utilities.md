@@ -23,4 +23,4 @@ sonic_commit_id: some-commit-id
 
 !!! tip
 
-    The needed grains are automatically set by our [SONiC Salt Deployer](SONiC-support/Deploy-Salt-minion).
+    The needed grains are automatically set by our [SONiC Salt Deployer](/SONiC-support/SONiC-Salt-Deployer/).

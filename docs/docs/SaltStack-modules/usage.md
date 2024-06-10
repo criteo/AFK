@@ -4,7 +4,7 @@
 
 To apply the configuration, you need the input data in OpenConfig format (JSON RFC7951).
 
-If you are using our [Data Aggregation API](/Data-Aggregation-API), you can create the following pillar in `{SALT_PILLAR_PATH}/data-aggregation-api-openconfig.sls`:
+If you are using our [Data Aggregation API](/Data-Aggregation-API/Installation/, you can create the following pillar in `{SALT_PILLAR_PATH}/data-aggregation-api-openconfig.sls`:
 
 ```py
 #!py
