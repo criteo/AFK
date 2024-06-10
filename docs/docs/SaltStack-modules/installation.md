@@ -33,5 +33,5 @@ file_roots:
 
 Depending on the Network OS you want to support, you will need:
 
-* [SONiC modules](/SONiC-support)
+* [SONiC modules](/SONiC-support/overview)
 * [napalm-salt](https://github.com/napalm-automation/napalm-salt) for Juniper JunOS and Arista EOS

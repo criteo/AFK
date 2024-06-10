@@ -2,7 +2,7 @@
 
 ## How to install
 
-The installation process is similar to [SaltStack modules installation](/SaltStack-modules/installation.md).
+The installation process is similar to [SaltStack modules installation](/SaltStack-modules/installation/).
 
 1. Download the [codebase](https://github.com/criteo/sonic-saltstack) to a dedicated path on your Salt-master.
 2. Add a new path to the `file_roots` section in the Salt-master configuration.

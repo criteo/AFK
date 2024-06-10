@@ -38,4 +38,4 @@ See [Configuration](./configuration.md) for more details.
 
 The only dependency is our [Network CMDB](https://github.com/criteo/netbox-network-cmdb) NetBox plugin.
 
-The installation guide of this plugin is available in the CMDB section [here](/docs/docs/CMDB/).
+The installation guide of this plugin is available in the CMDB section [here](/CMDB/installation/).
