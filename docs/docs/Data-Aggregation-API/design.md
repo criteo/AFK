@@ -1,5 +1,9 @@
 # Design
 
+## Swagger
+
+The Swagger UI can be found at `/swagger-ui` url.
+
 ## Ingestors
 
 An ingestor is a component responsible for fetching data from a single source of truth. Most of the time it is querying a single endpoint.
@@ -99,8 +103,12 @@ The reports contain:
 
 | Endpoint | Description |
 |------------|-----------|
+| `/v1/devices/[hostname]/config` | Get config (OpenConfig+IETF) data for a specific device |
+| `/v1/devices/*/config` | Get config (OpenConfig+IETF) data for all devices |
 | `/v1/devices/[hostname]/openconfig` | Get OpenConfig data for a specific device |
 | `/v1/devices/*/openconfig` | Get OpenConfig data for all devices |
+| `/v1/devices/[hostname]/ietf` | Get IETF data for a specific device (usage example: SNMP configuration) |
+| `/v1/devices/*/ietf` | Get IETF data for all devices (usage example: SNMP configuration) |
 | `/v1/devices/[hostname]/afk_enabled` | Indicates if a device has the tag AFK enabled in NetBox |
 | `/v1/devices/*/afk_enabled` | Same as above, but for all devices |
 
