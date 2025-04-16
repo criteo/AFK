@@ -45,7 +45,7 @@
 
 | Features | SONiC | JunOS | EOS |
 |----------|-------|-------|-----|
-| SNMP     | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: |
+| SNMP     | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Syslog   | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: |
 | TACACS   | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: |
 | Users    | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: | :octicons-project-roadmap-16: |
