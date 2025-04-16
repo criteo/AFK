@@ -6,6 +6,8 @@
 |---------------|---------|
 | 201911*       | :warning: |
 | 202205        | :white_check_mark: |
+| 202211        | :white_check_mark: |
+| 202305        | :white_check_mark: |
 
 !!! info "Legend"
 
